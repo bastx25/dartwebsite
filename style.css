@@ -5,6 +5,7 @@
   --paper: #f3f3f0;
   --muted: #b8b8b8;
   --red: #e10b0b;
+  --gold: #d4af37;
   --red-dark: #a90606;
   --green: #4c7d2f;
   --green-bright: #5d9639;
@@ -447,6 +448,11 @@ h2 {
   background: var(--red);
   color: var(--white);
   border-color: var(--red);
+}
+.info-card--accent-gold {
+  background: var(--gold);
+  color: var(--white);
+  border-color: var(--gold);
 }
 .info-card::after {
   content: "";
