@@ -1441,3 +1441,200 @@ main,
     grid-template-columns: 1fr;
   }
 }
+
+
+/* Hauptsponsor: eigener, prominenter Bereich für Bull's NL */
+.main-sponsor-section {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 12% 100%, rgba(239, 73, 47, 0.12), transparent 28%),
+    linear-gradient(120deg, #080808 0%, #101010 58%, #070707 100%);
+  color: var(--white);
+}
+.main-sponsor-section::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: -5rem;
+  right: -7rem;
+  width: 26rem;
+  height: 26rem;
+  border: 2.2rem solid rgba(239, 73, 47, 0.13);
+  border-radius: 50%;
+  pointer-events: none;
+}
+.main-sponsor-section::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  left: -5rem;
+  bottom: 5rem;
+  width: 19rem;
+  height: 0.7rem;
+  background: #ef492f;
+  transform: rotate(-34deg);
+  opacity: 0.8;
+  pointer-events: none;
+}
+.main-sponsor-layout {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+  align-items: center;
+  gap: clamp(2rem, 6vw, 5.5rem);
+}
+.main-sponsor__brand {
+  min-width: 0;
+}
+.main-sponsor__tag {
+  display: inline-block;
+  margin: 0 0 1rem 0.25rem;
+  padding: 0.55rem 0.85rem;
+  background: #ef492f;
+  color: #fff;
+  font-size: 0.7rem;
+  font-weight: 900;
+  letter-spacing: 0.16em;
+  transform: skewX(-8deg);
+}
+.main-sponsor__logo-link {
+  display: grid;
+  grid-template-rows: minmax(0, 1fr) auto;
+  place-items: center;
+  gap: 0.8rem;
+  min-height: 270px;
+  padding: clamp(1.4rem, 3vw, 2.6rem);
+  background: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-bottom: 5px solid #ef492f;
+  box-shadow: 0 24px 65px rgba(0, 0, 0, 0.3);
+  text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.main-sponsor__logo-link:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.42);
+}
+.main-sponsor__logo-link:focus-visible {
+  outline: 3px solid #ef492f;
+  outline-offset: 5px;
+}
+.main-sponsor__logo-link img {
+  width: 100%;
+  max-width: 530px;
+  max-height: 170px;
+  object-fit: contain;
+}
+.main-sponsor__logo-cta {
+  justify-self: end;
+  color: #092f4d;
+  font-size: 0.72rem;
+  font-weight: 900;
+  letter-spacing: 0.14em;
+}
+.main-sponsor__logo-cta span {
+  color: #ef492f;
+}
+.main-sponsor__content {
+  max-width: 620px;
+}
+.main-sponsor__content .section-kicker {
+  color: #ef725f;
+}
+.main-sponsor__content h2 {
+  max-width: 680px;
+  font-size: clamp(2.7rem, 5.2vw, 4.7rem);
+  line-height: 0.95;
+  letter-spacing: -0.025em;
+}
+.main-sponsor__content h2 span {
+  display: block;
+  color: #ef492f;
+}
+.main-sponsor__rule {
+  background: #ef492f;
+}
+.main-sponsor__content > p:not(.section-kicker) {
+  max-width: 560px;
+  margin: 1.5rem 0 1.8rem;
+  color: #c9c9c9;
+  font-size: 1.05rem;
+}
+.main-sponsor__content > p strong {
+  color: #fff;
+}
+.main-sponsor__button {
+  gap: 0.7rem;
+  background: #ef492f;
+  color: #fff;
+  border-color: #ef492f;
+}
+.main-sponsor__button:hover {
+  background: #fff;
+  color: #092f4d;
+  border-color: #fff;
+}
+.main-sponsor__button span {
+  font-size: 1rem;
+}
+
+@media (max-width: 900px) {
+  .main-sponsor-layout {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 2.5rem;
+  }
+  .main-sponsor__brand {
+    width: min(100%, 620px);
+    margin-inline: auto;
+  }
+  .main-sponsor__logo-link {
+    min-height: 220px;
+  }
+  .main-sponsor__logo-link img {
+    max-height: 145px;
+  }
+  .main-sponsor__content {
+    max-width: 720px;
+  }
+}
+
+@media (max-width: 620px) {
+  .main-sponsor-section.section {
+    padding-top: 3.8rem;
+    padding-bottom: 4rem;
+  }
+  .main-sponsor-layout {
+    gap: 2.2rem;
+  }
+  .main-sponsor__tag {
+    margin-bottom: 0.8rem;
+    font-size: 0.63rem;
+  }
+  .main-sponsor__logo-link {
+    min-height: 175px;
+    padding: 1.2rem;
+    gap: 0.45rem;
+  }
+  .main-sponsor__logo-link img {
+    max-height: 105px;
+  }
+  .main-sponsor__content h2 {
+    font-size: clamp(2.5rem, 11vw, 3.7rem);
+  }
+  .main-sponsor__content > p:not(.section-kicker) {
+    font-size: 0.98rem;
+    line-height: 1.6;
+  }
+  .main-sponsor__button {
+    width: auto;
+    max-width: 100%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .main-sponsor__logo-link {
+    transition: none;
+  }
+}
